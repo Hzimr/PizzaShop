@@ -4,6 +4,8 @@ import { Utensils } from 'lucide-react'
 import { getDayOrdersAmount } from '@/api/getDayOrdersAmount'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
+import { MetricCardSkeleton } from './metricCardSkeleton'
+
 export function DayOrdersAmountCard() {
   const { data: dayOrdersAmount } = useQuery({
     queryFn: getDayOrdersAmount,
@@ -42,6 +44,7 @@ export function DayOrdersAmountCard() {
             </p>
           </>
         )}
+        {!dayOrdersAmount && <MetricCardSkeleton />}
       </CardContent>
     </Card>
   )
