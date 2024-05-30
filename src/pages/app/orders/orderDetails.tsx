@@ -20,6 +20,8 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
+import { OrderDetailsSkeleton } from './orderDetailsSkeleton'
+
 export interface OrderDetailsProps {
   orderId: string
   open: boolean
@@ -131,6 +133,7 @@ export function OrderDetails({ orderId, open }: OrderDetailsProps) {
           </Table>
         </div>
       )}
+      {!order && <OrderDetailsSkeleton />}
     </DialogContent>
   )
 }
