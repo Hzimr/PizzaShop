@@ -21,12 +21,15 @@ export function AccountMenu() {
   const { data: profile, isLoading: isLoadingProfile } = useQuery({
     queryKey: ['profile'],
     queryFn: getProfile,
+    staleTime: Infinity,
   })
 
   const { data: managedRestaurant, isLoading: isLoadingManagedRestaurant } =
     useQuery({
       queryKey: ['managed-restaurant'],
       queryFn: getManagedRestaurant,
+      staleTime: Infinity,
+      // staleTime: 1000, // Stale time serve para dizer que depois de certo tempo em ms, os dados são obsolentos.
     })
 
   return (
